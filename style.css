@@ -506,3 +506,240 @@ h1 {
         font-size: 1em;
     }
 }
+
+/* ============ NOUVEAUX STYLES ============ */
+
+/* Galerie de miniatures */
+.thumbnail-gallery {
+    display: flex;
+    gap: 10px;
+    overflow-x: auto;
+    padding: 15px;
+    margin: 15px 0;
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    scrollbar-width: thin;
+}
+
+.thumbnail-gallery::-webkit-scrollbar {
+    height: 5px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-track {
+    background: rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.thumbnail-gallery::-webkit-scrollbar-thumb {
+    background: #ff6b6b;
+    border-radius: 10px;
+}
+
+.thumbnail {
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    opacity: 0.6;
+    flex-shrink: 0;
+}
+
+.thumbnail:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.thumbnail.active {
+    opacity: 1;
+    border: 3px solid #ff6b6b;
+    transform: scale(1.05);
+}
+
+/* Bouton thème */
+.theme-btn {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.theme-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Mode sombre */
+body.dark-mode {
+    background: linear-gradient(135deg, #1a1a2e, #16213e);
+}
+
+body.dark-mode .glass-effect {
+    background: rgba(0, 0, 0, 0.85);
+    color: white;
+}
+
+body.dark-mode .message {
+    background: linear-gradient(135deg, #2d3436, #000000);
+}
+
+body.dark-mode #loveMessage {
+    color: #ff9f9f;
+}
+
+body.dark-mode .counter {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff9f9f;
+}
+
+body.dark-mode .time-counter {
+    background: rgba(255, 107, 107, 0.2);
+    color: #ff9f9f;
+}
+
+body.dark-mode .thumbnail-gallery {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+body.dark-mode .slider-btn {
+    background: rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .slider-btn svg {
+    stroke: white;
+}
+
+body.dark-mode .dot {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+body.dark-mode .dot.active {
+    background: #ff9f9f;
+}
+
+/* Compteur de temps */
+.time-counter {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    padding: 8px 15px;
+    border-radius: 25px;
+    display: inline-block;
+    width: auto;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: monospace;
+}
+
+/* Boutons de partage */
+.share-buttons {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.share-btn {
+    padding: 8px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.share-btn.whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.share-btn.message {
+    background: #34B7F1;
+    color: white;
+}
+
+.share-btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.share-btn:active {
+    transform: scale(0.98);
+}
+
+/* Message du jour */
+.daily-message {
+    text-align: center;
+    margin-top: 15px;
+    padding: 8px;
+    font-size: 0.9em;
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.1);
+    border-radius: 25px;
+    animation: fadeInUp 0.5s ease;
+}
+
+/* Étoiles filantes */
+.shooting-star {
+    position: fixed;
+    width: 2px;
+    height: 2px;
+    background: white;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 999;
+}
+
+/* Ajustements responsifs */
+@media (max-width: 768px) {
+    .thumbnail {
+        width: 55px;
+        height: 55px;
+    }
+    
+    .thumbnail-gallery {
+        padding: 10px;
+        gap: 8px;
+    }
+    
+    .music-controls {
+        flex-wrap: wrap;
+    }
+    
+    .theme-btn {
+        padding: 8px 15px;
+        font-size: 12px;
+    }
+    
+    .share-btn {
+        padding: 6px 15px;
+        font-size: 12px;
+    }
+    
+    .time-counter {
+        font-size: 0.8em;
+        padding: 6px 12px;
+    }
+}
+
+/* Animation d'entrée pour les nouveaux éléments */
+.thumbnail-gallery,
+.time-counter,
+.share-buttons,
+.daily-message {
+    animation: fadeInUp 0.5s ease backwards;
+}
+
+.thumbnail-gallery { animation-delay: 0.2s; }
+.time-counter { animation-delay: 0.4s; }
+.share-buttons { animation-delay: 0.6s; }
+.daily-message { animation-delay: 0.8s; }
