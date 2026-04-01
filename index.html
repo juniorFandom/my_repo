@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Pour toi ❤️ - Mon amour</title>
+    <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Particules flottantes -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Coeurs flottants -->
+    <div class="floating-hearts" id="floatingHearts"></div>
+
+    <div class="container">
+        <div class="glass-effect">
+            <h1 id="dynamicTitle">Pour ma chérie ❤️</h1>
+
+            <div class="photo-slider">
+                <div class="slider-container" id="sliderContainer">
+                    <!-- Les photos seront ajoutées dynamiquement ici -->
+                </div>
+                <button class="slider-btn prev" id="prevBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M15 18l-6-6 6-6" />
+                    </svg>
+                </button>
+                <button class="slider-btn next" id="nextBtn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M9 18l6-6-6-6" />
+                    </svg>
+                </button>
+                <div class="slider-dots" id="sliderDots"></div>
+            </div>
+
+            <div class="music-controls">
+                <button id="playPauseBtn" class="music-btn">
+                    <span class="music-icon">🔊</span>
+                    <span class="music-text">Lecture/Pause</span>
+                </button>
+                <div class="volume-control">
+                    <span class="volume-icon">🔊</span>
+                    <input type="range" id="volumeSlider" min="0" max="1" step="0.1" value="0.5">
+                </div>
+            </div>
+
+            <div class="message">
+                <div class="message-content">
+                    <div class="message-icon">💝</div>
+                    <p id="loveMessage">Clique sur les photos pour découvrir un message spécial...</p>
+                </div>
+            </div>
+
+            <div class="counter">
+                <span id="photoCounter">1</span> / <span id="totalPhotos">12</span>
+            </div>
+        </div>
+    </div>
+
+    <audio id="bgMusic" loop preload="auto">
+        <source src="music/Fally Ipupa - Sans limite (Clip Officiel) [AmXTw4z3FvU].mp4" type="audio/mpeg">
+        Votre navigateur ne supporte pas la musique de fond.
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
