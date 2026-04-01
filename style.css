@@ -18,11 +18,9 @@ body {
     0% {
         background-position: 0% 50%;
     }
-
     50% {
         background-position: 100% 50%;
     }
-
     100% {
         background-position: 0% 50%;
     }
@@ -52,7 +50,6 @@ body {
         transform: translateY(100vh) rotate(0deg);
         opacity: 1;
     }
-
     100% {
         transform: translateY(-100vh) rotate(360deg);
         opacity: 0;
@@ -83,11 +80,9 @@ body {
         transform: translateY(100vh) scale(0);
         opacity: 1;
     }
-
     50% {
         opacity: 0.8;
     }
-
     100% {
         transform: translateY(-100vh) scale(1);
         opacity: 0;
@@ -100,7 +95,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     padding: 20px;
 }
 
@@ -125,7 +120,6 @@ body {
         opacity: 0;
         transform: translateY(50px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -144,17 +138,15 @@ h1 {
 }
 
 @keyframes titlePulse {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: scale(1);
     }
-
     50% {
         transform: scale(1.05);
     }
 }
 
+/* ============ CARROUSEL FLOTTANT EN HAUT À DROITE ============ */
 .photo-slider {
     position: relative;
     margin: 30px 0;
@@ -162,6 +154,127 @@ h1 {
     overflow: hidden;
     box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
     background: #f8f9fa;
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    width: 100%;
+}
+
+/* Style lorsque le carrousel est en mode flottant */
+.photo-slider.floating {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    left: auto;
+    width: 350px;
+    margin: 0;
+    z-index: 1000;
+    animation: slideInRight 0.5s ease-out;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(100px) scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+}
+
+/* Animation de retour */
+.photo-slider.floating.returning {
+    animation: slideOutRight 0.5s ease-out forwards;
+}
+
+@keyframes slideOutRight {
+    from {
+        opacity: 1;
+        transform: translateX(0) scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: translateX(100px) scale(0.8);
+    }
+}
+
+/* Ajustement de la taille des images en mode flottant */
+.photo-slider.floating .slider-container {
+    min-height: 250px;
+}
+
+.photo-slider.floating .slide img {
+    max-height: 200px;
+}
+
+.photo-slider.floating .slider-btn {
+    width: 30px;
+    height: 30px;
+}
+
+.photo-slider.floating .slider-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.photo-slider.floating .slider-dots {
+    bottom: 10px;
+    padding: 5px 10px;
+}
+
+.photo-slider.floating .dot {
+    width: 6px;
+    height: 6px;
+}
+
+.photo-slider.floating .dot.active {
+    width: 15px;
+}
+
+/* Overlay pour fermer le carrousel flottant */
+.carousel-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.carousel-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Bouton pour fermer/restaurer le carrousel */
+.close-floating-btn {
+    position: absolute;
+    top: -10px;
+    left: -10px;
+    width: 30px;
+    height: 30px;
+    background: #ff6b6b;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    z-index: 1001;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.close-floating-btn:hover {
+    transform: scale(1.1);
+    background: #ff5252;
 }
 
 .slider-container {
@@ -187,7 +300,6 @@ h1 {
         opacity: 0;
         transform: scale(0.9);
     }
-
     to {
         opacity: 1;
         transform: scale(1);
@@ -370,12 +482,9 @@ h1 {
 }
 
 @keyframes messageGlow {
-
-    0%,
-    100% {
+    0%, 100% {
         box-shadow: 0 0 5px rgba(255, 107, 107, 0.3);
     }
-
     50% {
         box-shadow: 0 0 20px rgba(255, 107, 107, 0.6);
     }
@@ -394,12 +503,9 @@ h1 {
 }
 
 @keyframes iconBounce {
-
-    0%,
-    100% {
+    0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-10px);
     }
@@ -429,13 +535,75 @@ h1 {
     margin-right: auto;
 }
 
+/* ============ LETTRE D'AMOUR ============ */
+.love-letter {
+    margin-top: 40px;
+    padding: 35px;
+    background: linear-gradient(135deg, rgba(255, 236, 210, 0.95), rgba(252, 182, 159, 0.95));
+    border-radius: 25px;
+    font-family: 'Dancing Script', cursive;
+    animation: fadeInUp 0.8s ease;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.love-letter::before {
+    content: '❤️';
+    position: absolute;
+    font-size: 250px;
+    opacity: 0.05;
+    bottom: -80px;
+    right: -80px;
+    pointer-events: none;
+    animation: rotateHeart 20s linear infinite;
+}
+
+@keyframes rotateHeart {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.love-letter h2 {
+    text-align: center;
+    color: #ff6b6b;
+    font-size: 2.2em;
+    margin-bottom: 30px;
+    font-family: 'Dancing Script', cursive;
+    position: relative;
+}
+
+.love-letter p {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.05em;
+    line-height: 1.8;
+    color: #2c3e50;
+    text-align: justify;
+    margin-bottom: 20px;
+    text-indent: 2em;
+}
+
+.love-letter .signature {
+    text-align: right;
+    font-size: 1.4em;
+    font-family: 'Dancing Script', cursive;
+    color: #ff6b6b;
+    margin-top: 35px;
+    font-weight: bold;
+    border-top: 2px dashed rgba(255, 107, 107, 0.3);
+    padding-top: 20px;
+}
+
 /* Animations au chargement */
 @keyframes fadeInUp {
     from {
         opacity: 0;
         transform: translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: translateY(0);
@@ -449,62 +617,26 @@ h1 {
 .glass-effect>*:nth-child(1) {
     animation-delay: 0.1s;
 }
-
 .glass-effect>*:nth-child(2) {
     animation-delay: 0.3s;
 }
-
 .glass-effect>*:nth-child(3) {
     animation-delay: 0.5s;
 }
-
 .glass-effect>*:nth-child(4) {
     animation-delay: 0.7s;
 }
-
 .glass-effect>*:nth-child(5) {
     animation-delay: 0.9s;
 }
-
-@media (max-width: 768px) {
-    .glass-effect {
-        padding: 25px;
-    }
-
-    h1 {
-        font-size: 2em;
-    }
-
-    .slider-container {
-        min-height: 350px;
-    }
-
-    .slide img {
-        max-height: 300px;
-    }
-
-    .slider-btn {
-        width: 35px;
-        height: 35px;
-    }
-
-    .slider-btn svg {
-        width: 18px;
-        height: 18px;
-    }
-
-    .message-content {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .message-icon {
-        font-size: 30px;
-    }
-
-    #loveMessage {
-        font-size: 1em;
-    }
+.glass-effect>*:nth-child(6) {
+    animation-delay: 1.1s;
+}
+.glass-effect>*:nth-child(7) {
+    animation-delay: 1.3s;
+}
+.glass-effect>*:nth-child(8) {
+    animation-delay: 1.5s;
 }
 
 /* ============ NOUVEAUX STYLES ============ */
@@ -623,6 +755,23 @@ body.dark-mode .dot.active {
     background: #ff9f9f;
 }
 
+body.dark-mode .love-letter {
+    background: linear-gradient(135deg, rgba(45, 52, 54, 0.95), rgba(0, 0, 0, 0.95));
+}
+
+body.dark-mode .love-letter p {
+    color: #f0f0f0;
+}
+
+body.dark-mode .love-letter h2 {
+    color: #ff9f9f;
+}
+
+body.dark-mode .love-letter .signature {
+    color: #ff9f9f;
+    border-top-color: rgba(255, 159, 159, 0.3);
+}
+
 /* Compteur de temps */
 .time-counter {
     text-align: center;
@@ -701,33 +850,112 @@ body.dark-mode .dot.active {
 
 /* Ajustements responsifs */
 @media (max-width: 768px) {
+    .glass-effect {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    .slider-container {
+        min-height: 350px;
+    }
+
+    .slide img {
+        max-height: 300px;
+    }
+
+    .slider-btn {
+        width: 35px;
+        height: 35px;
+    }
+
+    .slider-btn svg {
+        width: 18px;
+        height: 18px;
+    }
+
+    .message-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .message-icon {
+        font-size: 30px;
+    }
+
+    #loveMessage {
+        font-size: 1em;
+    }
+
     .thumbnail {
         width: 55px;
         height: 55px;
     }
-    
+
     .thumbnail-gallery {
         padding: 10px;
         gap: 8px;
     }
-    
+
     .music-controls {
         flex-wrap: wrap;
     }
-    
+
     .theme-btn {
         padding: 8px 15px;
         font-size: 12px;
     }
-    
+
     .share-btn {
         padding: 6px 15px;
         font-size: 12px;
     }
-    
+
     .time-counter {
         font-size: 0.8em;
         padding: 6px 12px;
+    }
+
+    .love-letter {
+        padding: 25px;
+    }
+
+    .love-letter h2 {
+        font-size: 1.8em;
+    }
+
+    .love-letter p {
+        font-size: 0.95em;
+        text-indent: 1.5em;
+    }
+
+    .love-letter .signature {
+        font-size: 1.2em;
+    }
+
+    /* Ajustements pour le carrousel flottant sur mobile */
+    .photo-slider.floating {
+        width: 280px;
+        top: 10px;
+        right: 10px;
+    }
+    
+    .photo-slider.floating .slider-container {
+        min-height: 200px;
+    }
+    
+    .photo-slider.floating .slide img {
+        max-height: 160px;
+    }
+    
+    .close-floating-btn {
+        width: 25px;
+        height: 25px;
+        font-size: 14px;
+        top: -8px;
+        left: -8px;
     }
 }
 
@@ -735,11 +963,149 @@ body.dark-mode .dot.active {
 .thumbnail-gallery,
 .time-counter,
 .share-buttons,
-.daily-message {
+.daily-message,
+.love-letter {
     animation: fadeInUp 0.5s ease backwards;
 }
 
-.thumbnail-gallery { animation-delay: 0.2s; }
-.time-counter { animation-delay: 0.4s; }
-.share-buttons { animation-delay: 0.6s; }
-.daily-message { animation-delay: 0.8s; }
+.thumbnail-gallery {
+    animation-delay: 0.2s;
+}
+.time-counter {
+    animation-delay: 0.4s;
+}
+.share-buttons {
+    animation-delay: 0.6s;
+}
+.daily-message {
+    animation-delay: 0.8s;
+}
+.love-letter {
+    animation-delay: 1s;
+}
+/* ============ PHOTOS DANS LA LETTRE D'AMOUR - VERSION AMÉLIORÉE ============ */
+.love-letter {
+    overflow: hidden;
+}
+
+.paragraph-with-photo {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    gap: 25px;
+    margin-bottom: 40px;
+    clear: both;
+}
+
+.paragraph-with-photo p {
+    flex: 1;
+    min-width: 200px;
+    margin: 0;
+    text-align: justify;
+}
+
+.love-photo {
+    flex-shrink: 0;
+    text-align: center;
+    transition: all 0.4s ease;
+}
+
+.love-photo.left {
+    order: -1;
+}
+
+.love-photo.right {
+    order: 1;
+}
+
+.love-photo img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Forme elliptique */
+.love-photo.ellipse img {
+    border-radius: 50% / 40%;
+}
+
+/* Forme circulaire */
+.love-photo.circle img {
+    border-radius: 50%;
+}
+
+/* Effet hover */
+.love-photo:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 20px 35px rgba(0, 0, 0, 0.3);
+}
+
+.photo-caption {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.85em;
+    color: #ff6b6b;
+    font-family: 'Dancing Script', cursive;
+    font-weight: bold;
+    opacity: 0.85;
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.love-photo:hover .photo-caption {
+    opacity: 1;
+    transform: translateY(-2px);
+}
+
+/* Ajustements responsifs */
+@media (max-width: 768px) {
+    .paragraph-with-photo {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+        margin-bottom: 30px;
+    }
+
+    .paragraph-with-photo p {
+        width: 100%;
+        order: 0 !important;
+    }
+
+    .love-photo {
+        order: 0 !important;
+        margin: 0 auto;
+    }
+
+    .love-photo img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .photo-caption {
+        font-size: 0.8em;
+    }
+}
+
+/* Style alternatif pour les écrans moyens */
+@media (min-width: 769px) and (max-width: 1024px) {
+    .love-photo img {
+        width: 180px;
+        height: 180px;
+    }
+
+    .paragraph-with-photo {
+        gap: 20px;
+    }
+}
+
+/* Version mode sombre */
+body.dark-mode .love-photo img {
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+}
+
+body.dark-mode .photo-caption {
+    color: #ff9f9f;
+}
+

@@ -23,7 +23,8 @@
         <div class="glass-effect">
             <h1 id="dynamicTitle">Pour ma chérie ❤️</h1>
 
-            <div class="photo-slider">
+            <!-- Carrousel STICKY -->
+            <div class="photo-slider" id="photoSlider">
                 <div class="slider-container" id="sliderContainer">
                     <!-- Les photos seront ajoutées dynamiquement ici -->
                 </div>
@@ -40,6 +41,10 @@
                 <div class="slider-dots" id="sliderDots"></div>
             </div>
 
+            <!-- Galerie de miniatures -->
+            <div class="thumbnail-gallery" id="thumbnailGallery">
+                <!-- Miniatures générées dynamiquement -->
+            </div>
 
             <div class="music-controls">
                 <button id="playPauseBtn" class="music-btn">
@@ -64,7 +69,147 @@
                 <span id="photoCounter">1</span> / <span id="totalPhotos">12</span>
             </div>
 
-            
+            <!-- Compteur de temps passé -->
+            <div class="time-counter">
+                <span>💕 Temps passé ensemble sur ce site : </span>
+                <span id="timeSpent">00:00:00</span>
+            </div>
+
+            <!-- LETTRE D'AMOUR avec photos intégrées -->
+            <div class="love-letter">
+                <h2>💕 Pour Toi, Mon Amour 💕</h2>
+
+                <div class="paragraph-with-photo">
+                    <p>Ma chérie, mon cœur, ma raison de vivre,</p>
+                    <div class="love-photo left circle">
+                        <img src="photos/photo1.jpeg" alt="Notre souvenir 1">
+                        <span class="photo-caption">✨ Le début de notre histoire ✨</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Chaque jour qui passe est une nouvelle raison de tomber un peu plus amoureux de toi. Depuis que
+                        tu es
+                        entrée dans ma vie, tout a pris des couleurs que je n'imaginais même pas possibles. Avant toi,
+                        je
+                        vivais, mais depuis que je te connais, je respire vraiment, je sens mon cœur battre plus fort,
+                        je
+                        comprends enfin ce que signifie le mot "bonheur".</p>
+                    <div class="love-photo right ellipse">
+                        <img src="photos/photo2.jpeg" alt="Notre souvenir 2">
+                        <span class="photo-caption">💕 Ton sourire illumine mes jours 💕</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Ton sourire est la plus belle chose que j'ai vue de toute ma vie. Quand tu souris, le monde
+                        autour de
+                        moi s'illumine, tous les problèmes disparaissent, et je me sens invincible. Tes yeux sont comme
+                        deux
+                        étoiles qui guident mes pas dans la nuit. Chaque regard que tu me portes est un poème, chaque
+                        parole
+                        que tu prononces est une mélodie qui résonne dans mon cœur.</p>
+                    <div class="love-photo left circle">
+                        <img src="photos/photo3.jpeg" alt="Notre souvenir 3">
+                        <span class="photo-caption">🌹 Notre première rencontre 🌹</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Je me souviens encore de notre première rencontre comme si c'était hier. Ce moment où nos regards
+                        se
+                        sont croisés, j'ai su instantanément que quelque chose de spécial allait se produire. Et je ne
+                        me
+                        suis pas trompé. Depuis ce jour, tu n'as cessé de me surprendre, de me faire rire, de me
+                        réconforter, de me rendre meilleur.</p>
+                    <div class="love-photo right ellipse">
+                        <img src="photos/photo4.jpeg" alt="Notre souvenir 4">
+                        <span class="photo-caption">⭐️ Des moments magiques ensemble ⭐️</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Toi, tu as cette incroyable capacité à transformer les moments les plus simples en souvenirs
+                        inoubliables. Un coucher de soleil vu de notre fenêtre, une promenade sous la pluie, un fou rire
+                        partagé autour d'un repas... Avec toi, tout devient magique. Tu es cette magie qui opère dans ma
+                        vie
+                        et qui la rend extraordinaire.</p>
+                    <div class="love-photo left circle">
+                        <img src="photos/photo5.jpeg" alt="Notre souvenir 5">
+                        <span class="photo-caption">💖 Mon cœur bat pour toi 💖</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Je suis reconnaissant pour chaque instant passé à tes côtés. Reconnaissant pour ta patience quand
+                        je
+                        suis difficile, pour ton soutien quand je doute, pour ton amour inconditionnel qui me donne la
+                        force
+                        d'avancer. Tu es mon ancre dans les tempêtes, mon phare dans la nuit, mon refuge quand le monde
+                        devient trop bruyant.</p>
+                    <div class="love-photo right ellipse">
+                        <img src="photos/photo6.jpeg" alt="Notre souvenir 6">
+                        <span class="photo-caption">🌸 Des souvenirs inoubliables 🌸</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Quand je pense à notre avenir, mon cœur s'emballe. Je me vois vieillir à tes côtés, voir nos
+                        cheveux
+                        blanchir ensemble, nos rides dessiner le sourire de toute une vie passée à s'aimer. Je me vois
+                        construire une famille avec toi, élever nos enfants, leur apprendre ce que c'est que d'aimer et
+                        d'être aimé.</p>
+                    <div class="love-photo left circle">
+                        <img src="photos/photo7.jpeg" alt="Notre souvenir 7">
+                        <span class="photo-caption">🎵 Ta voix est ma musique préférée 🎵</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Tu es la femme de ma vie. Pas seulement celle que j'aime aujourd'hui, mais celle que j'aimerai
+                        demain, dans un an, dans dix ans, dans cinquante ans. Mon amour pour toi ne fait que grandir
+                        chaque
+                        jour, comme un arbre qui plonge ses racines toujours plus profondément dans la terre.</p>
+                    <div class="love-photo right ellipse">
+                        <img src="photos/photo8.jpeg" alt="Notre souvenir 8">
+                        <span class="photo-caption">💫 Tu es ma lumière 💫</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Je t'aime pour ce que tu es, dans ta totalité. J'aime tes forces qui m'inspirent, tes faiblesses
+                        qui
+                        me rendent plus fort, tes rêves que je veux aider à réaliser, tes peurs que je veux apaiser.
+                        J'aime
+                        ton rire qui résonne comme une musique, ta voix qui me rassure, ton silence qui me parle.</p>
+                    <div class="love-photo left circle">
+                        <img src="photos/photo9.jpeg" alt="Notre souvenir 9">
+                        <span class="photo-caption">🌟 Tu es mon étoile 🌟</span>
+                    </div>
+                </div>
+
+                <div class="paragraph-with-photo">
+                    <p>Merci d'être toi. Merci d'exister. Merci d'avoir croisé mon chemin. Merci de choisir chaque jour
+                        de
+                        m'aimer, de me supporter, de me comprendre. Tu es le plus beau cadeau que la vie m'ait offert,
+                        et je
+                        promets de prendre soin de ce cadeau précieux chaque jour de ma vie.</p>
+                    <div class="love-photo right ellipse">
+                        <img src="photos/photo12.jpeg" alt="Notre souvenir 10">
+                        <span class="photo-caption">💝 Pour toujours et à jamais 💝</span>
+                    </div>
+                </div>
+
+                <p>Je t'aime plus que tout au monde, plus que les mots ne peuvent l'exprimer, plus que le temps ne
+                    pourra jamais l'effacer. Tu es mon présent, mon futur, mon éternité.</p>
+
+                <div class="signature">
+                    Ton amour pour toujours ❤️<br>
+                    Junior
+                </div>
+            </div>
+
+        
         </div>
     </div>
 
